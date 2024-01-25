@@ -25,7 +25,7 @@ jobs:
         with:
           registry: ghcr.io # Specifies the registry URL
           username: ${{ github.actor }} # GitHub actor (user who triggered the workflow)
-          password: ${{ secrets.GITHUB_TOKEN }} # GITHUB_TOKEN for authentication
+          password: ${{ secrets.GHCR_TOKEN }} # GITHUB_TOKEN for authentication
 
       # Sets up a Docker image tag using the GitHub Run Number
       - name: Set up Docker image tag
