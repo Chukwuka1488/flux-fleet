@@ -29,10 +29,10 @@ jobs:
 
       # Sets up a Docker image tag using the GitHub Run Number
       - name: Set up Docker image tag
-        id: set-tag
-        run: echo "::set-output name=tag::ghcr.io/${{ github.repository }}/cookie-clicker:${GITHUB_RUN_NUMBER}"
-        # This command sets the output variable 'tag' which can be used in subsequent steps
-        # The tag format is: ghcr.io/[repository-name]/nextjs-app:[run-number]
+        run: echo "IMAGE_TAG=ghcr.io/${{ github.repository }}/cookie-clicker:${GITHUB_RUN_NUMBER}" >> $GITHUB_ENV
+        # This command sets the environment variable 'IMAGE_TAG' which can be used in subsequent steps
+        # The tag format is: ghcr.io/[repository-name]/cookie-clicker:[run-number]
+        # Ensure repository name is in lowercase
 
       # Builds and pushes the Docker image to GHCR
       - name: Build and push Docker image
@@ -41,4 +41,4 @@ jobs:
           context: . # Specifies the build context (current directory)
           file: ./Dockerfile # Path to the Dockerfile
           push: true # Enables pushing the image to a registry
-          tags: ${{ steps.set-tag.outputs.tag }} # Tags the image using the output from the 'set-tag' step
+          tags: ${{ env.IMAGE_TAG }} # Tags the image using the environment variable 'IMAGE_TAG'
