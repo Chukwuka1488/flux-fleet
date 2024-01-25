@@ -30,7 +30,7 @@ jobs:
       # Sets up a Docker image tag using the GitHub Run Number
       - name: Set up Docker image tag
         id: set-tag
-        run: echo "::set-output name=tag::ghcr.io/${{ github.repository }}/nextjs-app:${GITHUB_RUN_NUMBER}"
+        run: echo "::set-output name=tag::ghcr.io/${{ github.repository }}/cookie-clicker:${GITHUB_RUN_NUMBER}"
         # This command sets the output variable 'tag' which can be used in subsequent steps
         # The tag format is: ghcr.io/[repository-name]/nextjs-app:[run-number]
 
