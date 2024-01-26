@@ -91,7 +91,7 @@ export default function Home() {
         </div>
         <div className={styles.field}>
           <h2>Welcome to Haykay Cookie Clicker!!!</h2>
-          <h2>🍪 Mark - Repath 🍪 I hope this works!</h2>
+          <h2>🍪 Mark - Repath 🍪 Hope you give a good feedback!</h2>
           {Object.keys(state).map((tier, idx) => {
             if (idx === 0 || idx === 1) {
               return null;
