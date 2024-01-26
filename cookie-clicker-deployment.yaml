@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: cookie-clicker
-        image: ghcr.io/chukwuka1488/flux-fleet/cookie-clicker:12
+        image: ghcr.io/chukwuka1488/flux-fleet/cookie-clicker:13
         ports:
         - containerPort: 80  # Adjust the port if the container listens on a different port
 
