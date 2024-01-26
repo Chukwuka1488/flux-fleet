@@ -41,6 +41,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: . # Specifies the build context (current directory)
-          file: ./Dockerfile # Path to the Dockerfile
+          file: Dockerfile # Path to the Dockerfile
           push: true # Enables pushing the image to a registry
-          tags: ${{ env.IMAGE_TAG }} # Tags the image using the environment variable 'IMAGE_TAG'
+          tags: ${{ steps.set-tag.outputs.tag }} # Tags the image using the environment variable 'IMAGE_TAG'
