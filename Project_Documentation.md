@@ -79,3 +79,5 @@ Deploying a Next.js application on Kubernetes with Prometheus, Grafana, and Cert
 - **Direct Serving**: For simpler applications, especially those that require dynamic rendering, serving directly from Next.js can be more suitable. Kubernetes' native features can handle many of the tasks that Nginx would otherwise manage.
 
 Ultimately, the decision depends on your specific application needs, traffic patterns, and how comfortable you are managing either setup. In a Kubernetes environment, both options are viable and can be integrated effectively with Prometheus, Grafana, and Cert-Manager.
+
+civo kubernetes create civo-cluster -n 3 -s g4s.kube.medium --cluster-type k3s --create-firewall --firewall-rules "6443" --region NYC1 --wait --save --merge --switch

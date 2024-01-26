@@ -1,3 +1,5 @@
 node_modules
 
 .next/
+
+civo-civo-cluster-kubeconfig
