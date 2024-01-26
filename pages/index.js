@@ -90,7 +90,7 @@ export default function Home() {
           <Clicker amount={state.clicks.amount} dispatch={dispatch} />
         </div>
         <div className={styles.field}>
-          <h2>Welcome to Cookie Clicker!!!</h2>
+          <h2>Welcome to Haykay Cookie Clicker!!!</h2>
           <h2>🍪 Mark - Repath 🍪 Hope your good feedback!</h2>
           {Object.keys(state).map((tier, idx) => {
             if (idx === 0 || idx === 1) {
