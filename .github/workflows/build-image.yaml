@@ -30,7 +30,7 @@ jobs:
       # Sets up a Docker image tag using the GitHub Run Number
       - name: Set up Docker image tag
         id: set-tag
-        run: echo "::set-output name=tag::ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]'):${GITHUB_RUN_NUMBER}"
+        run: echo "::set-output name=tag::ghcr.io/$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')/cookie-clicker:${GITHUB_RUN_NUMBER}"
         # This command sets the environment variable 'IMAGE_TAG' which can be used in subsequent steps
         # The tag format is: ghcr.io/[repository-name]/cookie-clicker:[run-number]
         # Ensure repository name is in lowercase
