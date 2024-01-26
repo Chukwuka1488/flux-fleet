@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flux-fleet-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cookie-clicker
+  template:
+    metadata:
+      labels:
+        app: cookie-clicker
+    spec:
+      containers:
+      - name: cookie-clicker
+        image: ghcr.io/chukwuka1488/flux-fleet/cookie-clicker:12
+        ports:
+        - containerPort: 80  # Adjust the port if the container listens on a different port
+

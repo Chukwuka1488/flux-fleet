@@ -1,33 +1,24 @@
-# Stage 1: Build the Next.js application
+# Use an official Node.js runtime as a parent image
 FROM node:alpine as builder
 
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json/yarn.lock files
+# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 COPY yarn.lock ./
 
 # Install dependencies
 RUN yarn install
 
-# Copy the rest of your app's source code
+# Copy the rest of the application code to the working directory
 COPY . .
 
-# Build your Next.js application
+# Build the Next.js app
 RUN yarn build
 
-# Stage 2: Setup the Nginx server
-FROM nginx:alpine
+# Expose the port that Next.js will run on
+EXPOSE 3000
 
-# Copy the build output from the builder stage
-COPY --from=builder /app/.next/static /usr/share/nginx/html/_next/static
-COPY --from=builder /app/public /usr/share/nginx/html
-
-# Copy the custom Nginx configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80
-EXPOSE 80
-
-# Start Nginx server
-CMD ["nginx", "-g", "daemon off;"]
+# Define the command to run your application
+CMD ["yarn", "start"]
